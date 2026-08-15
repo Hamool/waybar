@@ -1,86 +1,140 @@
 @import url("./rose-pine-waybar/rose-pine-moon.css");
 
 * {
+  border: none;
+  border-radius: 0;
   font-family: "Maple Mono NF";
-  font-size: 10px;
+  font-size: 14px;
+  min-height: 0;
 }
 
-#waybar {
-  background: transparent;
+window#waybar {
+  background: rgba(21, 18, 27, 0);
   color: @text;
 }
 
-#workspaces {
-  background-color: @surface;
+tooltip {
+  background: @base;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @overlay;
 }
 
 #workspaces button {
-  color: @iris;
+  padding: 5px;
+  color: @highlightMed;
+  margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: @foam;
+  color: @text;
+}
+
+#workspaces button.focused {
+  color: @subtle;
+  background: @love;
+}
+
+#workspaces button.urgent {
+  color: @base;
+  background: @pine;
 }
 
 #workspaces button:hover {
-  color: @pine;
+  background: @highlightLow;
+  color: @text;
 }
 
-button {
-  background: transparent;
-}
-
-#custom-music,
-#tray,
-#backlight,
+#custom-power_profile,
+#window,
 #clock,
 #battery,
 #pulseaudio,
-#custom-lock,
-#language,
-#cava,
-#custom-power {
-  background-color: @surface;
-  padding: 0.5rem 1rem;
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#memory,
+#backlight {
+  background: @base;
+  opacity: 0.9;
+  padding: 0px 10px;
+  margin: 0px 0px;
+  border: 1px solid @pine;
 }
 
-#clock {
-  color: @foam;
+#memory {
+  color: #3e8fb0;
 }
 
-#battery {
-  color: @pine;
+#temperature {
+  color: @gold;
+  border-left: 0px;
+  border-right: 0px;
 }
 
-#battery.charging {
-  color: @pine;
-}
-
-#battery.warning:not(.charging) {
+#temperature.critical {
+  border-left: 0px;
+  border-right: 0px;
   color: @love;
 }
 
 #backlight {
-  color: @gold;
+  color: @text;
 }
 
-#backlight,
-#battery {
+#tray {
+  margin-right: 0px;
+}
+
+#workspaces {
+  background: @base;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#custom-power_profile {
+  color: @foam;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#window {
+}
+
+window#waybar.empty {
+  background-color: transparent;
+}
+
+window#waybar.empty #window {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background-color: transparent;
+}
+
+#clock {
+  color: @text;
+  background: @pine;
+}
+
+#network {
+  color: @love;
+  border-right: 0px;
 }
 
 #pulseaudio {
-  color: @rose;
-}
-
-
-#language {
   color: @iris;
+  border-right: 0px;
 }
 
-#custom-power {
-  color: @love;
+#battery {
+  color: @foam;
+  border-right: 0px;
 }
 
-#workspaces button.urgent {
-  color: @love;
+#memory {
+  color: @foam;
+  border-right: 0px;
 }
