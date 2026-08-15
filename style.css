@@ -1,4 +1,4 @@
-@import url("./catppuccin/themes/mocha.css");
+@import url("./rose-pine-waybar/rose-pine-moon.css");
 
 * {
   font-family: "Maple Mono NF";
@@ -11,19 +11,19 @@
 }
 
 #workspaces {
-  background-color: @surface0;
+  background-color: @surface;
 }
 
 #workspaces button {
-  color: @lavender;
+  color: @iris;
 }
 
 #workspaces button.active {
-  color: @sky;
+  color: @foam;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
+  color: @pine;
 }
 
 button {
@@ -40,28 +40,28 @@ button {
 #language,
 #cava,
 #custom-power {
-  background-color: @surface0;
+  background-color: @surface;
   padding: 0.5rem 1rem;
 }
 
 #clock {
-  color: @blue;
+  color: @foam;
 }
 
 #battery {
-  color: @green;
+  color: @pine;
 }
 
 #battery.charging {
-  color: @green;
+  color: @pine;
 }
 
 #battery.warning:not(.charging) {
-  color: @red;
+  color: @love;
 }
 
 #backlight {
-  color: @yellow;
+  color: @gold;
 }
 
 #backlight,
@@ -69,18 +69,18 @@ button {
 }
 
 #pulseaudio {
-  color: @maroon;
+  color: @rose;
 }
 
 
 #language {
-  color: @lavender;
+  color: @iris;
 }
 
 #custom-power {
-  color: @red;
+  color: @love;
 }
 
 #workspaces button.urgent {
-  color: @red;
+  color: @love;
 }

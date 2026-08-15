@@ -1,3 +1,3 @@
-[submodule "catppuccin"]
-	path = catppuccin
-	url = https://github.com/catppuccin/waybar
+[submodule "rose-pine-waybar"]
+	path = rose-pine-waybar
+	url = https://github.com/rose-pine/waybar
