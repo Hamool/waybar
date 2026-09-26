@@ -1,8 +1,6 @@
 @import url("./rose-pine-waybar/rose-pine-moon.css");
 
 * {
-  border: none;
-  border-radius: 8px;
   font-family: "Maple Mono NF";
   font-size: 14px;
   min-height: 0;
@@ -11,33 +9,111 @@
 window#waybar {
   background: transparent;
   color: @text;
+  margin: 2px 2px;
 }
 
-window#waybar > box {
-    margin: 5px 6px 0;
-    border-radius: 10px;
-}
-
-tooltip {
-  background: @base;
-  border-width: 2px;
-  border-style: solid;
-  border-color: @overlay;
+#workspaces {
+  border-radius: 1rem;
+  margin: 3px;
+  background-color: @surface0;
+  margin-left: 1rem;
 }
 
 #workspaces button {
-  padding: 5px;
-  color: @highlightMed;
-  margin-right: 5px;
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
 
 #workspaces button.active {
-  color: @text;
+  color: @sky;
+  border-radius: 1.5rem;
 }
 
-#workspaces button.focused {
-  color: @subtle;
-  background: @love;
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#network,
+#language,
+#window,
+#custom-power {
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 3px 0;
+}
+
+#window {
+	border-radius: 1rem;
+	color: @sky;
+}
+
+#clock {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @green;
+}
+
+#network {
+  color: @sapphire;
+}
+
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#backlight,
+#battery {
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: @maroon;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#custom-music {
+  color: @mauve;
+  border-radius: 1rem;
+}
+
+#language {
+  border-radius: 1rem 0px 0px 1rem;
+  color: @lavender;
+}
+
+#custom-power {
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
+  font-size: 15px;
+  color: @red;
+}
+
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 #workspaces button.urgent {

@@ -14,16 +14,19 @@
 		"hyprland/workspaces"
 	],
 	"modules-center": [
+		//"custom/music"
 		"hyprland/window"
 	],
 	"modules-right": [
-		"network",
-		"bluetooth",
-		"temperature",
-		"memory",
-		"battery",
 		"pulseaudio",
-		"backlight"
+		//"backlight",
+		"network",
+		"battery",
+		"clock",
+		"tray",
+		"hyprland/language",
+	//	"custom/lock",
+		"custom/power"
 	],
 	"hyprland/window": {
 		"format": "{}",
@@ -32,25 +35,34 @@
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
-		"format": "{name}"
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "󰛳",
+			"default": ""
+		}
 	},
 	"tray": {
 		"icon-size": 18,
 		"spacing": 10
 	},
-    "hyprland/language": {
-        "format-fa": "🇮🇷",
-        "format-en": "🇺🇸",
-        // "format": "{short}",
-        "tooltip": true,
-        "return-type": "json",
-    },
-    "custom/jdate": {
-        "exec": "jq -nc --arg text \"$(jdate '+%R  %Y/%m/%d')\" --arg tooltip \"$(jcal)\" '{text:$text, tooltip:$tooltip}'",
-        "interval": 30,
-        "tooltip": true,
-        "return-type": "json",
-    },
+	"custom/music": {
+		"format": " {}",
+		"escape": true,
+		"interval": 5,
+		"tooltip": false,
+		"exec": "playerctl metadata --format='{{ title }}'",
+		"on-click": "playerctl play-pause",
+		"max-length": 50
+	},
+	"clock": {
+		"timezone": "Asia/Novosibirsk",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": " {:%d/%m/%Y}",
+		"format": " {:%H:%M}"
+	},
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon} {percent}",
@@ -69,10 +81,10 @@
 			"warning": 30,
 			"critical": 20
 		},
-		"format": "{icon} {capacity}",
-		"format-charging": " {capacity}",
-		"format-plugged": " {capacity}",
-		"format-alt": "{time} {icon}",
+		"format": "{icon}  {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": "",
+		"format-alt": "{icon}",
 		"format-icons": [
 			"󰂎",
 			"󰁺",
@@ -119,36 +131,32 @@
 		"on-scroll-down": "pamixer --default-source -d 5",
 		"scroll-step": 5
 	},
-	"temperature": {
-		"thermal-zone": 1,
-		"format": "TEMP {temperatureC}°C",
-		"critical-threshold": 80,
-		"format-critical": "{temperatureC}°C "
+	"custom/power": {
+		"tooltip": false,
+		"on-click": "wlogout &",
+		"format": ""
 	},
-	"memory": {
-		"interval": 30,
-		"format": "RAM {}%",
-		"max-length": 10,
-		"tooltip": true,
-		"tooltip-format": "Memory - {used:0.1f}GB used",
-		"on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+	"hyprland/language": {
+		"format": " {short}"
+		//"format-en": "en",
+		//"format-ru": "ru",
+		//"interval": 1,
+		//"keyboard-name": "gaming-keyboard",
+		//"on-click": "hyprctl switchxkblayout gaming-keyboard next"
 	},
 	"network": {
+		//"interface": "wlan0",
+		"format": "{ifname}",
+		//"format-wifi": "{essid} ({signalStrength}%) ",
 		"format-wifi": "  {signalStrength}%",
-		"format-ethernet": "{ipaddr}/{cidr} ",
-		"tooltip-format": "{essid} - {ifname} via {gwaddr} ",
-		"format-linked": "{ifname} (No IP) ",
-		"format-disconnected": "NONE ⚠",
-		"format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
-		"on-click-right": "~/.config/rofi/bin/network"
-	},
-	"bluetooth": {
-		"format": " {status}",
-		"format-disabled": "", // an empty format will hide the module
-		"format-connected": " {num_connections}",
-		"tooltip-format": "{device_alias}",
-		"tooltip-format-connected": " {device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}",
-		"on-click-right": "blueman-manager"
+		//"format-ethernet": "{ipaddr}/{cidr} ",
+		"format-ethernet": "",
+		"format-disconnected": "", //An empty format will hide the module.
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+		"on-click": "kitty --class floating -e nmtui connect"
 	}
 }
